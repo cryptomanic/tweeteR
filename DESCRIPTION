@@ -10,4 +10,5 @@ Depends:
 License: GPL-2
 LazyData: true
 RoxygenNote: 5.0.1
-Imports: httr
+Imports: httr,
+    jsonlite
