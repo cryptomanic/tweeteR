@@ -22,22 +22,44 @@ hashTag <- function(token = NULL, hashtag = NULL, count = 15, lang = "en") {
 
   url           <- "https://api.twitter.com/1.1/search/tweets.json?q=%23"
   url           <- paste0(url, hashtag, "&count=", count, "&lang=", lang)
-  configuration <- httr::config(token = token)
 
-  result <- try(html <- httr::GET(url,configuration))
-  result <- class(result)
+  ldf <- APIcall(token, url)
+  ldf <- ldf$statuses
 
-  if (result[1] == "try-error") {
-    stop("Incorrect Token")
-  }
-
-  json <- httr::content(html)
-  ldf  <- jsonlite::fromJSON(jsonlite::toJSON(json))
-
-  tweets    <- gsub(x = ldf$statuses$text, pattern = "https?://.+$|\\n","")
-  user_id   <- sapply(ldf$statuses$user$id, function(x) x)
-  user_name <- sapply(ldf$statuses$user$name, function(x) x)
-  location  <- sapply(ldf$statuses$user$location, function(x) x)
+  tweets    <- gsub(x = ldf$text, pattern = "https?://.+$|\\n","")
+  ldf <- ldf$user
+  user_id   <- sapply(ldf$id, function(x) x)
+  user_name <- sapply(ldf$name, function(x) x)
+  location  <- sapply(ldf$location, function(x) x)
 
   data.frame(user_id, user_name, location, tweets)
+}
+
+#' User Information.
+#'
+#' General Information of User.
+#'
+#' @param token Access Token
+#' @param user_name Screen Name
+#'
+#' @examples
+#' userInfo(token, "put username here")
+#' @export
+
+userInfo <- function(token = NULL, user_name = NULL) {
+  if (is.null(token) || is.null(user_name)) {
+    stop('Neither token nor user name can be NULL')
+  }
+
+  url           <- "https://api.twitter.com/1.1/statuses/user_timeline.json?"
+  url           <- paste0(url, "count=1&screen_name=", user_name)
+
+  ldf <- APIcall(token, url)
+  ldf <- ldf$user
+
+  list(id          = ldf$id[[1]],
+       name        = ldf$name[[1]],
+       location    = ldf$location[[1]],
+       description = ldf$description[[1]],
+       followers   = ldf$followers_count[[1]])
 }
