@@ -20,17 +20,18 @@ hashTag <- function(token = NULL, hashtag = NULL, count = 15, lang = "en") {
     stop('Neither token nor hashtag can be NULL')
   }
 
-  url           <- "https://api.twitter.com/1.1/search/tweets.json?q=%23"
-  url           <- paste0(url, hashtag, "&count=", count, "&lang=", lang)
+  url <- "https://api.twitter.com/1.1/search/tweets.json?q=%23"
+  url <- paste0(url, hashtag, "&count=", count, "&lang=", lang)
 
   ldf <- APIcall(token, url)
   ldf <- ldf$statuses
 
   tweets    <- gsub(x = ldf$text, pattern = "https?://.+$|\\n","")
   ldf <- ldf$user
-  user_id   <- sapply(ldf$id, function(x) x)
-  user_name <- sapply(ldf$name, function(x) x)
-  location  <- sapply(ldf$location, function(x) x)
+  user_id     <-  sapply(ldf$id, function(x) x)
+  user_name   <-  sapply(ldf$name, function(x) x)
+  location    <-  sapply(ldf$location, function(x) x)
+  img_profile <<- sapply(ldf$profile_image_url, function(x) x)
 
   data.frame(user_id, user_name, location, tweets)
 }
@@ -51,8 +52,8 @@ userInfo <- function(token = NULL, user_name = NULL) {
     stop('Neither token nor user name can be NULL')
   }
 
-  url           <- "https://api.twitter.com/1.1/statuses/user_timeline.json?"
-  url           <- paste0(url, "count=1&screen_name=", user_name)
+  url <- "https://api.twitter.com/1.1/statuses/user_timeline.json?"
+  url <- paste0(url, "count=1&screen_name=", user_name)
 
   ldf <- APIcall(token, url)
   ldf <- ldf$user
