@@ -57,6 +57,7 @@ userInfo <- function(token = NULL, user_name = NULL) {
 
   ldf <- APIcall(token, url)
   ldf <- ldf$user
+  profile_pic <<- ldf$profile_image_url[[1]]
 
   list(id          = ldf$id[[1]],
        name        = ldf$name[[1]],
