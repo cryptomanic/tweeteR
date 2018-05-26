@@ -14,9 +14,4 @@ tweetOauth(client_id = NULL, client_secret = NULL)
 \description{
 To get an access token with which further API call is possible.
 }
-\examples{
-api_key    <- "jkdfjkldsfugjsdb"
-api_secret <- "fggsus42|jgsdj26"
-tweetOauth(api_key, api_secret)
-}
 

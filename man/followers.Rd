@@ -14,8 +14,4 @@ followers(token = NULL, username = NULL)
 \description{
 Return ids of followers of an user
 }
-\examples{
-followers(<your access token>, "xyz")
-
-}
 

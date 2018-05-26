@@ -16,7 +16,4 @@ userInfo(token = NULL, user_name = NULL, user_id = NULL)
 \description{
 General Information of User.
 }
-\examples{
-userInfo(token, "put username here")
-}
 

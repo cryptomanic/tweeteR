@@ -20,9 +20,4 @@ given by an ISO 639-1 code}
 \description{
 Search for tweets having particular hashtag.
 }
-\examples{
-hashTag(token, "oldisgold")
-hashTag(token, "oldisgold", count = 10)
-hashTag(token, "oldisgold", count = 50, lang = "zh")
-}
 
