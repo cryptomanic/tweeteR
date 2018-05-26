@@ -9,10 +9,6 @@
 #' @param lang Restricts tweets to the given language,
 #'             given by an ISO 639-1 code
 #'
-#' @examples
-#' #hashTag(token, "oldisgold")
-#' #hashTag(token, "oldisgold", count = 10)
-#' #hashTag(token, "oldisgold", count = 50, lang = "zh")
 #' @export
 
 hashTag <-
@@ -46,8 +42,6 @@ hashTag <-
 #' @param user_name Screen Name
 #' @param user_id User Id
 #'
-#' @examples
-#' #userInfo(token, "put username here")
 #' @export
 
 userInfo <-

@@ -5,9 +5,6 @@
 #' @param token Access Token
 #' @param username Screen Name
 #'
-#' @examples
-#' #followers(<your access token>, "xyz")
-#'
 #' @export
 
 followers <- function(token = NULL, username = NULL) {
