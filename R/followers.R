@@ -6,7 +6,7 @@
 #' @param username Screen Name
 #'
 #' @examples
-#' followers(<your access token>, "xyz")
+#' #followers(<your access token>, "xyz")
 #'
 #' @export
 

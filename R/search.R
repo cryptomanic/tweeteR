@@ -10,9 +10,9 @@
 #'             given by an ISO 639-1 code
 #'
 #' @examples
-#' hashTag(token, "oldisgold")
-#' hashTag(token, "oldisgold", count = 10)
-#' hashTag(token, "oldisgold", count = 50, lang = "zh")
+#' #hashTag(token, "oldisgold")
+#' #hashTag(token, "oldisgold", count = 10)
+#' #hashTag(token, "oldisgold", count = 50, lang = "zh")
 #' @export
 
 hashTag <-
@@ -47,7 +47,7 @@ hashTag <-
 #' @param user_id User Id
 #'
 #' @examples
-#' userInfo(token, "put username here")
+#' #userInfo(token, "put username here")
 #' @export
 
 userInfo <-
