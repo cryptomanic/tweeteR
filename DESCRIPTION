@@ -1,7 +1,8 @@
 Package: tweeteR
 Title: Tools for working with Twitter API
 Version: 0.0.0.9000
-Authors@R: 'Deepak Yadav <deepakyadav.iitbhu@gmail.com> [aut, cre]'
+Author: Deepak Yadav [aut, cre]
+Maintainer: Deepak Yadav <deepakyadav.iitbhu@gmail.com>
 Description: Useful for getting the access token. The access token can be
     further used to call functions for getting tweets with the given hash tag,
     search tweets containing sone specific keyword and so on.
