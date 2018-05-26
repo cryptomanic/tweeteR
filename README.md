@@ -7,7 +7,7 @@ Useful for getting the access token. The access token can be
 ## Installation
 Get the development version from github:
 
-```
+```r
 install.packages("devtools")
 devtools::install_github("cryptomanic/tweeteR")
 ```
